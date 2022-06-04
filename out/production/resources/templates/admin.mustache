@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>AdminPage</h1>
+<table class="table table-horizontal table-bordered">
+    <thead class="thead-strong">
+    <tr>
+        <th>이름</th>
+        <th>학번</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    {{#userList}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{UUID}}</td>
+        </tr>
+    {{/userList}}
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,350 @@
+INFO  22-05-16 14:21:56[restartedMain] [CodeusApplication:55] - Starting CodeusApplication using Java 11.0.12 on hweyoungui-MacBookAir.local with PID 71344 (/Users/hweyoung/Desktop/codeus/codeus/out/production/classes started by hweyoung in /Users/hweyoung/Desktop/codeus/codeus)
+INFO  22-05-16 14:21:56[restartedMain] [CodeusApplication:640] - No active profile set, falling back to 1 default profile: "default"
+INFO  22-05-16 14:21:56[restartedMain] [DevToolsPropertyDefaultsPostProcessor:255] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+INFO  22-05-16 14:21:56[restartedMain] [DevToolsPropertyDefaultsPostProcessor:255] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+INFO  22-05-16 14:21:57[restartedMain] [RepositoryConfigurationDelegate:132] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO  22-05-16 14:21:57[restartedMain] [RepositoryConfigurationDelegate:201] - Finished Spring Data repository scanning in 55 ms. Found 3 JPA repository interfaces.
+INFO  22-05-16 14:21:58[restartedMain] [TomcatWebServer:108] - Tomcat initialized with port(s): 8080 (http)
+INFO  22-05-16 14:21:58[restartedMain] [Http11NioProtocol:173] - Initializing ProtocolHandler ["http-nio-8080"]
+INFO  22-05-16 14:21:58[restartedMain] [StandardService:173] - Starting service [Tomcat]
+INFO  22-05-16 14:21:58[restartedMain] [StandardEngine:173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+INFO  22-05-16 14:21:58[restartedMain] [[/]:173] - Initializing Spring embedded WebApplicationContext
+INFO  22-05-16 14:21:58[restartedMain] [ServletWebServerApplicationContext:290] - Root WebApplicationContext: initialization completed in 1993 ms
+INFO  22-05-16 14:21:58[restartedMain] [HikariDataSource:110] - HikariPool-1 - Starting...
+INFO  22-05-16 14:22:02[restartedMain] [HikariDataSource:123] - HikariPool-1 - Start completed.
+INFO  22-05-16 14:22:02[restartedMain] [H2ConsoleAutoConfiguration:89] - H2 console available at '/h2_db'. Database available at 'jdbc:h2:file:~/codeus'
+INFO  22-05-16 14:22:02[restartedMain] [LogHelper:31] - HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO  22-05-16 14:22:02[restartedMain] [Version:44] - HHH000412: Hibernate ORM core version 5.6.7.Final
+INFO  22-05-16 14:22:02[restartedMain] [Version:56] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+INFO  22-05-16 14:22:02[restartedMain] [Dialect:175] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523155 | took 2ms | statement | connection 2| url jdbc:h2:file:~/codeus
+drop table if exists Group_ CASCADE 
+drop table if exists Group_ CASCADE ;
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523158 | took 2ms | statement | connection 2| url jdbc:h2:file:~/codeus
+drop table if exists Group__users CASCADE 
+drop table if exists Group__users CASCADE ;
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523159 | took 0ms | statement | connection 2| url jdbc:h2:file:~/codeus
+drop table if exists Post CASCADE 
+drop table if exists Post CASCADE ;
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523160 | took 0ms | statement | connection 2| url jdbc:h2:file:~/codeus
+drop table if exists User CASCADE 
+drop table if exists User CASCADE ;
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523160 | took 0ms | statement | connection 2| url jdbc:h2:file:~/codeus
+drop sequence if exists hibernate_sequence
+drop sequence if exists hibernate_sequence;
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523163 | took 0ms | statement | connection 3| url jdbc:h2:file:~/codeus
+create sequence hibernate_sequence start with 1 increment by 1
+create sequence hibernate_sequence start with 1 increment by 1;
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523164 | took 0ms | statement | connection 3| url jdbc:h2:file:~/codeus
+create table Group_ (groupSeq bigint not null, name varchar(255), primary key (groupSeq))
+create table Group_ (groupSeq bigint not null, name varchar(255), primary key (groupSeq));
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523165 | took 0ms | statement | connection 3| url jdbc:h2:file:~/codeus
+create table Group__users (Group__groupSeq bigint not null, users_user_seq bigint not null)
+create table Group__users (Group__groupSeq bigint not null, users_user_seq bigint not null);
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523165 | took 0ms | statement | connection 3| url jdbc:h2:file:~/codeus
+create table Post (postSeq bigint not null, code varchar(255), comment varchar(255), groupSeq bigint, qListName varchar(255), qListid bigint, stack varchar(255), userid varchar(255), week bigint, primary key (postSeq))
+create table Post (postSeq bigint not null, code varchar(255), comment varchar(255), groupSeq bigint, qListName varchar(255), qListid bigint, stack varchar(255), userid varchar(255), week bigint, primary key (postSeq));
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523167 | took 1ms | statement | connection 3| url jdbc:h2:file:~/codeus
+create table User (user_seq bigint generated by default as identity, createdAt timestamp, updatedAt timestamp, group_code varchar(255), id varchar(255) not null, img varchar(255), pwd varchar(255) not null, question varchar(255) not null, primary key (user_seq))
+create table User (user_seq bigint generated by default as identity, createdAt timestamp, updatedAt timestamp, group_code varchar(255), id varchar(255) not null, img varchar(255), pwd varchar(255) not null, question varchar(255) not null, primary key (user_seq));
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523167 | took 0ms | statement | connection 3| url jdbc:h2:file:~/codeus
+alter table Group__users add constraint UK_592mq8c74jrty5gejaxslwdku unique (users_user_seq)
+alter table Group__users add constraint UK_592mq8c74jrty5gejaxslwdku unique (users_user_seq);
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523174 | took 6ms | statement | connection 3| url jdbc:h2:file:~/codeus
+alter table Group__users add constraint FK9ydl1ps2ad41hficq3v3q69ht foreign key (users_user_seq) references User
+alter table Group__users add constraint FK9ydl1ps2ad41hficq3v3q69ht foreign key (users_user_seq) references User;
+INFO  22-05-16 14:22:03[restartedMain] [p6spy:60] - #1652678523187 | took 13ms | statement | connection 3| url jdbc:h2:file:~/codeus
+alter table Group__users add constraint FKjwn6jag7tnn9os8j7e2hspshy foreign key (Group__groupSeq) references Group_
+alter table Group__users add constraint FKjwn6jag7tnn9os8j7e2hspshy foreign key (Group__groupSeq) references Group_;
+INFO  22-05-16 14:22:03[restartedMain] [JtaPlatformInitiator:52] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO  22-05-16 14:22:03[restartedMain] [LocalContainerEntityManagerFactoryBean:437] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN  22-05-16 14:22:03[restartedMain] [JpaBaseConfiguration$JpaWebConfiguration:219] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+WARN  22-05-16 14:22:04[restartedMain] [ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration:104] - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+INFO  22-05-16 14:22:04[restartedMain] [OptionalLiveReloadServer:58] - LiveReload server is running on port 35729
+INFO  22-05-16 14:22:04[restartedMain] [Http11NioProtocol:173] - Starting ProtocolHandler ["http-nio-8080"]
+INFO  22-05-16 14:22:04[restartedMain] [TomcatWebServer:220] - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  22-05-16 14:22:04[restartedMain] [CodeusApplication:61] - Started CodeusApplication in 8.723 seconds (JVM running for 10.47)
+INFO  22-05-16 14:22:35[http-nio-8080-exec-2] [[/]:173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  22-05-16 14:22:35[http-nio-8080-exec-2] [DispatcherServlet:525] - Initializing Servlet 'dispatcherServlet'
+INFO  22-05-16 14:22:35[http-nio-8080-exec-2] [DispatcherServlet:547] - Completed initialization in 5 ms
+INFO  22-05-16 14:22:35[http-nio-8080-exec-2] [p6spy:60] - #1652678555818 | took 2ms | statement | connection 4| url jdbc:h2:file:~/codeus
+insert into User (user_seq, createdAt, updatedAt, group_code, id, img, pwd, question) values (default, ?, ?, ?, ?, ?, ?, ?)
+insert into User (user_seq, createdAt, updatedAt, group_code, id, img, pwd, question) values (default, '2022-05-16T14:22:35.756+0900', '2022-05-16T14:22:35.756+0900', NULL, 'user1', NULL, '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '1 랑이');
+INFO  22-05-16 14:22:35[http-nio-8080-exec-2] [p6spy:60] - #1652678555839 | took 0ms | commit | connection 4| url jdbc:h2:file:~/codeus
+
+;
+INFO  22-05-16 14:22:39[http-nio-8080-exec-3] [p6spy:60] - #1652678559162 | took 2ms | statement | connection 5| url jdbc:h2:file:~/codeus
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id=?
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id='user1';
+INFO  22-05-16 14:22:39[http-nio-8080-exec-3] [JwtTokenService:99] - 2022-05-16T14:22:37.769873448
+INFO  22-05-16 14:22:51[http-nio-8080-exec-4] [p6spy:60] - #1652678571613 | took 0ms | statement | connection 6| url jdbc:h2:file:~/codeus
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id=?
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id='user1';
+INFO  22-05-16 14:22:51[http-nio-8080-exec-4] [FileUtils:67] - /Users/hweyoung/Desktop/codeus/codeus/src/main/webapp/upload/user/user1
+INFO  22-05-16 14:22:51[http-nio-8080-exec-4] [p6spy:60] - #1652678571648 | took 2ms | statement | connection 6| url jdbc:h2:file:~/codeus
+update User set createdAt=?, updatedAt=?, group_code=?, id=?, img=?, pwd=?, question=? where user_seq=?
+update User set createdAt='2022-05-16T14:22:35.756+0900', updatedAt='2022-05-16T14:22:51.639+0900', group_code=NULL, id='user1', img='/Users/hweyoung/Desktop/codeus/codeus/src/main/webapp/upload/user/user1', pwd='03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', question='1 랑이' where user_seq=1;
+INFO  22-05-16 14:22:51[http-nio-8080-exec-4] [p6spy:60] - #1652678571650 | took 0ms | commit | connection 6| url jdbc:h2:file:~/codeus
+
+;
+INFO  22-05-16 14:24:37[http-nio-8080-exec-7] [p6spy:60] - #1652678677707 | took 1ms | statement | connection 7| url jdbc:h2:file:~/codeus
+insert into User (user_seq, createdAt, updatedAt, group_code, id, img, pwd, question) values (default, ?, ?, ?, ?, ?, ?, ?)
+insert into User (user_seq, createdAt, updatedAt, group_code, id, img, pwd, question) values (default, '2022-05-16T14:24:37.692+0900', '2022-05-16T14:24:37.692+0900', NULL, '혁순', NULL, '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '1 랑이');
+INFO  22-05-16 14:24:37[http-nio-8080-exec-7] [p6spy:60] - #1652678677711 | took 0ms | commit | connection 7| url jdbc:h2:file:~/codeus
+
+;
+INFO  22-05-16 14:24:44[http-nio-8080-exec-8] [p6spy:60] - #1652678684972 | took 2ms | statement | connection 8| url jdbc:h2:file:~/codeus
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id=?
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id='혁순';
+INFO  22-05-16 14:24:44[http-nio-8080-exec-8] [JwtTokenService:99] - 2022-05-16T14:24:43.503567448
+WARN  22-05-16 14:24:52[http-nio-8080-exec-9] [ExceptionHandlerExceptionResolver:208] - Resolved [com.codeus.config.exception.MethodNotAllowException: 잘못된 경로 요청]
+INFO  22-05-16 14:25:05[http-nio-8080-exec-10] [p6spy:60] - #1652678705009 | took 1ms | statement | connection 9| url jdbc:h2:file:~/codeus
+insert into User (user_seq, createdAt, updatedAt, group_code, id, img, pwd, question) values (default, ?, ?, ?, ?, ?, ?, ?)
+insert into User (user_seq, createdAt, updatedAt, group_code, id, img, pwd, question) values (default, '2022-05-16T14:25:05.001+0900', '2022-05-16T14:25:05.001+0900', NULL, 'hello', NULL, '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '1 랑이');
+INFO  22-05-16 14:25:05[http-nio-8080-exec-10] [p6spy:60] - #1652678705012 | took 0ms | commit | connection 9| url jdbc:h2:file:~/codeus
+
+;
+INFO  22-05-16 14:25:10[http-nio-8080-exec-1] [p6spy:60] - #1652678710123 | took 0ms | statement | connection 10| url jdbc:h2:file:~/codeus
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id=?
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id='hello';
+INFO  22-05-16 14:25:10[http-nio-8080-exec-1] [JwtTokenService:99] - 2022-05-16T14:25:08.651986448
+WARN  22-05-16 14:25:16[http-nio-8080-exec-2] [ExceptionHandlerExceptionResolver:208] - Resolved [com.codeus.config.exception.MethodNotAllowException: 잘못된 경로 요청]
+INFO  22-05-16 14:25:22[http-nio-8080-exec-3] [p6spy:60] - #1652678722355 | took 0ms | statement | connection 11| url jdbc:h2:file:~/codeus
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id=?
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id='hello';
+INFO  22-05-16 14:25:22[http-nio-8080-exec-3] [FileUtils:67] - /Users/hweyoung/Desktop/codeus/codeus/src/main/webapp/upload/user/hello
+INFO  22-05-16 14:25:22[http-nio-8080-exec-3] [p6spy:60] - #1652678722367 | took 0ms | statement | connection 11| url jdbc:h2:file:~/codeus
+update User set createdAt=?, updatedAt=?, group_code=?, id=?, img=?, pwd=?, question=? where user_seq=?
+update User set createdAt='2022-05-16T14:25:05.001+0900', updatedAt='2022-05-16T14:25:22.364+0900', group_code=NULL, id='hello', img='/Users/hweyoung/Desktop/codeus/codeus/src/main/webapp/upload/user/hello', pwd='03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', question='1 랑이' where user_seq=3;
+INFO  22-05-16 14:25:22[http-nio-8080-exec-3] [p6spy:60] - #1652678722368 | took 0ms | commit | connection 11| url jdbc:h2:file:~/codeus
+
+;
+INFO  22-05-16 14:25:34[http-nio-8080-exec-4] [p6spy:60] - #1652678734613 | took 0ms | statement | connection 12| url jdbc:h2:file:~/codeus
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id=?
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id='hello';
+INFO  22-05-16 14:25:34[http-nio-8080-exec-4] [FileUtils:67] - /Users/hweyoung/Desktop/codeus/codeus/src/main/webapp/upload/user/hello
+INFO  22-05-16 14:25:34[http-nio-8080-exec-4] [p6spy:60] - #1652678734621 | took 0ms | commit | connection 12| url jdbc:h2:file:~/codeus
+
+;
+INFO  22-05-16 14:25:50[http-nio-8080-exec-5] [p6spy:60] - #1652678750000 | took 0ms | statement | connection 13| url jdbc:h2:file:~/codeus
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id=?
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id='hello';
+INFO  22-05-16 14:25:50[http-nio-8080-exec-5] [FileUtils:67] - /Users/hweyoung/Desktop/codeus/codeus/src/main/webapp/upload/user/hello
+INFO  22-05-16 14:25:50[http-nio-8080-exec-5] [p6spy:60] - #1652678750013 | took 0ms | commit | connection 13| url jdbc:h2:file:~/codeus
+
+;
+INFO  22-05-16 14:39:00[SpringApplicationShutdownHook] [LocalContainerEntityManagerFactoryBean:651] - Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO  22-05-16 14:39:00[SpringApplicationShutdownHook] [HikariDataSource:350] - HikariPool-1 - Shutdown initiated...
+INFO  22-05-16 14:39:01[SpringApplicationShutdownHook] [HikariDataSource:352] - HikariPool-1 - Shutdown completed.
+INFO  22-05-16 14:39:10[restartedMain] [CodeusApplication:55] - Starting CodeusApplication using Java 11.0.12 on hweyoungui-MacBookAir.local with PID 71900 (/Users/hweyoung/Desktop/codeus/codeus/out/production/classes started by hweyoung in /Users/hweyoung/Desktop/codeus/codeus)
+INFO  22-05-16 14:39:10[restartedMain] [CodeusApplication:640] - No active profile set, falling back to 1 default profile: "default"
+INFO  22-05-16 14:39:10[restartedMain] [DevToolsPropertyDefaultsPostProcessor:255] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+INFO  22-05-16 14:39:10[restartedMain] [DevToolsPropertyDefaultsPostProcessor:255] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+INFO  22-05-16 14:39:13[restartedMain] [RepositoryConfigurationDelegate:132] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO  22-05-16 14:39:13[restartedMain] [RepositoryConfigurationDelegate:201] - Finished Spring Data repository scanning in 95 ms. Found 3 JPA repository interfaces.
+INFO  22-05-16 14:39:14[restartedMain] [TomcatWebServer:108] - Tomcat initialized with port(s): 8080 (http)
+INFO  22-05-16 14:39:14[restartedMain] [Http11NioProtocol:173] - Initializing ProtocolHandler ["http-nio-8080"]
+INFO  22-05-16 14:39:14[restartedMain] [StandardService:173] - Starting service [Tomcat]
+INFO  22-05-16 14:39:14[restartedMain] [StandardEngine:173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+INFO  22-05-16 14:39:15[restartedMain] [[/]:173] - Initializing Spring embedded WebApplicationContext
+INFO  22-05-16 14:39:15[restartedMain] [ServletWebServerApplicationContext:290] - Root WebApplicationContext: initialization completed in 4118 ms
+INFO  22-05-16 14:39:15[restartedMain] [HikariDataSource:110] - HikariPool-1 - Starting...
+INFO  22-05-16 14:39:45[restartedMain] [HikariDataSource:123] - HikariPool-1 - Start completed.
+INFO  22-05-16 14:39:45[restartedMain] [H2ConsoleAutoConfiguration:89] - H2 console available at '/h2_db'. Database available at 'jdbc:h2:file:~/codeus'
+INFO  22-05-16 14:39:45[restartedMain] [LogHelper:31] - HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO  22-05-16 14:39:45[restartedMain] [Version:44] - HHH000412: Hibernate ORM core version 5.6.7.Final
+INFO  22-05-16 14:39:46[restartedMain] [Version:56] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+INFO  22-05-16 14:39:46[restartedMain] [Dialect:175] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586792 | took 5ms | statement | connection 2| url jdbc:h2:file:~/codeus
+drop table if exists Group_ CASCADE 
+drop table if exists Group_ CASCADE ;
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586794 | took 1ms | statement | connection 2| url jdbc:h2:file:~/codeus
+drop table if exists Group__users CASCADE 
+drop table if exists Group__users CASCADE ;
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586797 | took 1ms | statement | connection 2| url jdbc:h2:file:~/codeus
+drop table if exists Post CASCADE 
+drop table if exists Post CASCADE ;
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586801 | took 4ms | statement | connection 2| url jdbc:h2:file:~/codeus
+drop table if exists User CASCADE 
+drop table if exists User CASCADE ;
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586804 | took 1ms | statement | connection 2| url jdbc:h2:file:~/codeus
+drop sequence if exists hibernate_sequence
+drop sequence if exists hibernate_sequence;
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586809 | took 2ms | statement | connection 3| url jdbc:h2:file:~/codeus
+create sequence hibernate_sequence start with 1 increment by 1
+create sequence hibernate_sequence start with 1 increment by 1;
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586813 | took 3ms | statement | connection 3| url jdbc:h2:file:~/codeus
+create table Group_ (groupSeq bigint not null, name varchar(255), primary key (groupSeq))
+create table Group_ (groupSeq bigint not null, name varchar(255), primary key (groupSeq));
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586814 | took 0ms | statement | connection 3| url jdbc:h2:file:~/codeus
+create table Group__users (Group__groupSeq bigint not null, users_user_seq bigint not null)
+create table Group__users (Group__groupSeq bigint not null, users_user_seq bigint not null);
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586816 | took 1ms | statement | connection 3| url jdbc:h2:file:~/codeus
+create table Post (postSeq bigint not null, code varchar(255), comment varchar(255), groupSeq bigint, qListName varchar(255), qListid bigint, stack varchar(255), userid varchar(255), week bigint, primary key (postSeq))
+create table Post (postSeq bigint not null, code varchar(255), comment varchar(255), groupSeq bigint, qListName varchar(255), qListid bigint, stack varchar(255), userid varchar(255), week bigint, primary key (postSeq));
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586821 | took 4ms | statement | connection 3| url jdbc:h2:file:~/codeus
+create table User (user_seq bigint generated by default as identity, createdAt timestamp, updatedAt timestamp, group_code varchar(255), id varchar(255) not null, img varchar(255), pwd varchar(255) not null, question varchar(255) not null, primary key (user_seq))
+create table User (user_seq bigint generated by default as identity, createdAt timestamp, updatedAt timestamp, group_code varchar(255), id varchar(255) not null, img varchar(255), pwd varchar(255) not null, question varchar(255) not null, primary key (user_seq));
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586823 | took 1ms | statement | connection 3| url jdbc:h2:file:~/codeus
+alter table Group__users add constraint UK_592mq8c74jrty5gejaxslwdku unique (users_user_seq)
+alter table Group__users add constraint UK_592mq8c74jrty5gejaxslwdku unique (users_user_seq);
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586834 | took 9ms | statement | connection 3| url jdbc:h2:file:~/codeus
+alter table Group__users add constraint FK9ydl1ps2ad41hficq3v3q69ht foreign key (users_user_seq) references User
+alter table Group__users add constraint FK9ydl1ps2ad41hficq3v3q69ht foreign key (users_user_seq) references User;
+INFO  22-05-16 14:39:46[restartedMain] [p6spy:60] - #1652679586837 | took 2ms | statement | connection 3| url jdbc:h2:file:~/codeus
+alter table Group__users add constraint FKjwn6jag7tnn9os8j7e2hspshy foreign key (Group__groupSeq) references Group_
+alter table Group__users add constraint FKjwn6jag7tnn9os8j7e2hspshy foreign key (Group__groupSeq) references Group_;
+INFO  22-05-16 14:39:46[restartedMain] [JtaPlatformInitiator:52] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO  22-05-16 14:39:46[restartedMain] [LocalContainerEntityManagerFactoryBean:437] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN  22-05-16 14:39:47[restartedMain] [JpaBaseConfiguration$JpaWebConfiguration:219] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+WARN  22-05-16 14:39:47[restartedMain] [ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration:104] - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+INFO  22-05-16 14:39:48[restartedMain] [OptionalLiveReloadServer:58] - LiveReload server is running on port 35729
+INFO  22-05-16 14:39:48[restartedMain] [Http11NioProtocol:173] - Starting ProtocolHandler ["http-nio-8080"]
+INFO  22-05-16 14:39:48[restartedMain] [TomcatWebServer:220] - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  22-05-16 14:39:48[restartedMain] [CodeusApplication:61] - Started CodeusApplication in 38.594 seconds (JVM running for 40.502)
+INFO  22-05-16 14:39:50[http-nio-8080-exec-2] [[/]:173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  22-05-16 14:39:50[http-nio-8080-exec-2] [DispatcherServlet:525] - Initializing Servlet 'dispatcherServlet'
+INFO  22-05-16 14:39:50[http-nio-8080-exec-2] [DispatcherServlet:547] - Completed initialization in 3 ms
+INFO  22-05-16 14:39:50[http-nio-8080-exec-2] [p6spy:60] - #1652679590328 | took 2ms | statement | connection 4| url jdbc:h2:file:~/codeus
+insert into User (user_seq, createdAt, updatedAt, group_code, id, img, pwd, question) values (default, ?, ?, ?, ?, ?, ?, ?)
+insert into User (user_seq, createdAt, updatedAt, group_code, id, img, pwd, question) values (default, '2022-05-16T14:39:50.278+0900', '2022-05-16T14:39:50.278+0900', NULL, 'user1', NULL, '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '1 랑이');
+INFO  22-05-16 14:39:50[http-nio-8080-exec-2] [p6spy:60] - #1652679590372 | took 0ms | commit | connection 4| url jdbc:h2:file:~/codeus
+
+;
+INFO  22-05-16 14:40:02[http-nio-8080-exec-3] [p6spy:60] - #1652679602271 | took 2ms | statement | connection 5| url jdbc:h2:file:~/codeus
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id=?
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id='user1';
+INFO  22-05-16 14:40:02[http-nio-8080-exec-3] [JwtTokenService:99] - 2022-05-16T14:40:00.873978448
+ERROR 22-05-16 14:40:02[http-nio-8080-exec-3] [[dispatcherServlet]:175] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.codeus.dto.user.response.transfertest]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.codeus.dto.user.response.transfertest and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.codeus.dto.JsonResponse["data"])] with root cause
+com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.codeus.dto.user.response.transfertest and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.codeus.dto.JsonResponse["data"])
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
+	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1300)
+	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:400)
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.failForEmpty(UnknownSerializer.java:46)
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.serialize(UnknownSerializer.java:29)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:774)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1007)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:456)
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:290)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:219)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:135)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+INFO  22-05-16 14:40:10[http-nio-8080-exec-5] [p6spy:60] - #1652679610038 | took 0ms | statement | connection 6| url jdbc:h2:file:~/codeus
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id=?
+select user0_.user_seq as user_seq1_3_, user0_.createdAt as createda2_3_, user0_.updatedAt as updateda3_3_, user0_.group_code as group_co4_3_, user0_.id as id5_3_, user0_.img as img6_3_, user0_.pwd as pwd7_3_, user0_.question as question8_3_ from User user0_ where user0_.id='user1';
+INFO  22-05-16 14:40:10[http-nio-8080-exec-5] [JwtTokenService:99] - 2022-05-16T14:40:08.570267448
+ERROR 22-05-16 14:40:10[http-nio-8080-exec-5] [[dispatcherServlet]:175] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.codeus.dto.user.response.transfertest]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.codeus.dto.user.response.transfertest and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.codeus.dto.JsonResponse["data"])] with root cause
+com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.codeus.dto.user.response.transfertest and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.codeus.dto.JsonResponse["data"])
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
+	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1300)
+	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:400)
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.failForEmpty(UnknownSerializer.java:46)
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.serialize(UnknownSerializer.java:29)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:774)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1007)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:456)
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:290)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:219)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:135)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+INFO  22-05-16 14:41:09[SpringApplicationShutdownHook] [LocalContainerEntityManagerFactoryBean:651] - Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO  22-05-16 14:41:09[SpringApplicationShutdownHook] [HikariDataSource:350] - HikariPool-1 - Shutdown initiated...
+INFO  22-05-16 14:41:09[SpringApplicationShutdownHook] [HikariDataSource:352] - HikariPool-1 - Shutdown completed.
